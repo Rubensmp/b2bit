@@ -3,6 +3,7 @@ import { ActionButton } from "../../components";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/config";
 import { UserInfoInterface } from "../../types/User";
+import Loading from "../../components/Loading";
 
 const Profile: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -55,10 +56,9 @@ const Profile: React.FC = () => {
       <div className="flex flex-1 items-center justify-center">
         <div className="flex flex-col w-438px bg-white items-center rounded-[9px] p-[25px] w-[438px] drop-shadow-[0_0_64px_rgba(0,0,0,0.25)] ">
           {loading ? (
-            <div>Loading</div>
+            <Loading size="8" />
           ) : (
             <>
-              {" "}
               <p className="text-black text-base  font-[700]">
                 Profile picture
               </p>

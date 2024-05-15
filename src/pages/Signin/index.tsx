@@ -69,13 +69,10 @@ const Signin: React.FC = () => {
               name="password"
               type="password"
               label="Senha"
-              placeholder="*********"
+              placeholder="*******"
             />
 
-            <ActionButton
-              type="submit"
-              text={loading ? "Loading..." : "Sign In"}
-            />
+            <ActionButton type="submit" text={"Sign In"} loading={loading} />
           </Form>
         </Formik>
       </div>
