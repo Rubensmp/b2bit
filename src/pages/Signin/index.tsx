@@ -13,13 +13,12 @@ const Signin: React.FC = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/profile");
+      navigate("/");
     }
   }, [isAuthenticated, navigate]);
 
   const handleLogin = async (values: InitialValues) => {
     setLoading(true);
-
     try {
       const response = await api.post(
         "/auth/login/",
@@ -40,11 +39,11 @@ const Signin: React.FC = () => {
 
       await localStorage.setItem("accessToken", access);
       await localStorage.setItem("refreshToken", refresh);
+
+      setLoading(false);
+      navigate("/");
     } catch (error) {
       console.error("Erro:", error);
-    } finally {
-      setLoading(false);
-      navigate("/profile");
     }
   };
 

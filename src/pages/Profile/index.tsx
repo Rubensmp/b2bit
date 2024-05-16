@@ -19,7 +19,7 @@ const Profile: React.FC = () => {
     await localStorage.removeItem("accessToken");
     await localStorage.removeItem("refreshToken");
 
-    navigate("/");
+    navigate("/signin");
   };
 
   useEffect(() => {
