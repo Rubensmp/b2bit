@@ -21,8 +21,10 @@ const ActionButton: React.FC<ButtonProps> = ({
       type={type || "button"}
       className={`bg-blue rounded-[9px] px-[10px] py-[10px] text-white font-[700] ${width}`}
       onClick={action}
+      disabled={loading}
+      data-testid="actionButtonId"
     >
-      {loading ? <Loading /> : text}
+      {loading ? <Loading size="4" /> : text}
     </button>
   );
 };

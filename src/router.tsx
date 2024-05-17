@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import * as Pages from "./pages";
 import PrivateRoute from "./components/PrivateRoute";
@@ -12,6 +12,7 @@ export const Router: React.FC = () => {
         <Route path="/" element={<Pages.Profile />} />
       </Route>
       <Route path="/signin" element={<Pages.Signin />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };

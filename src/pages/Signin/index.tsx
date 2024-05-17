@@ -9,6 +9,7 @@ import api from "../../services/config";
 const Signin: React.FC = () => {
   const isAuthenticated = !!localStorage.getItem("accessToken");
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,13 +20,14 @@ const Signin: React.FC = () => {
 
   const handleLogin = async (values: InitialValues) => {
     setLoading(true);
+    setError("");
     try {
       const response = await api.post(
         "/auth/login/",
         {
-          // ...values,
-          email: "cliente@youdrive.com",
-          password: "password",
+          ...values,
+          // email: "cliente@youdrive.com",
+          // password: "password",
         },
         {
           headers: {
@@ -40,10 +42,12 @@ const Signin: React.FC = () => {
       await localStorage.setItem("accessToken", access);
       await localStorage.setItem("refreshToken", refresh);
 
-      setLoading(false);
       navigate("/");
     } catch (error) {
-      console.error("Erro:", error);
+      setError("E-mail ou senha inválido");
+      setLoading(false);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -70,7 +74,11 @@ const Signin: React.FC = () => {
               label="Senha"
               placeholder="*******"
             />
-
+            {error ? (
+              <div className="text-red text-[12px]">{error}</div>
+            ) : (
+              <div className="h-[18px]" />
+            )}
             <ActionButton type="submit" text={"Sign In"} loading={loading} />
           </Form>
         </Formik>

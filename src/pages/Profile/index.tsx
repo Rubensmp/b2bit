@@ -35,7 +35,7 @@ const Profile: React.FC = () => {
 
         setUserInfo(response.data);
       } catch (error) {
-        console.error("Erro ao buscar informações do usuário:", error);
+        console.error("Erro:", error);
       } finally {
         setLoading(false);
       }
@@ -56,7 +56,7 @@ const Profile: React.FC = () => {
       <div className="flex flex-1 items-center justify-center">
         <div className="flex flex-col w-438px bg-white items-center rounded-[9px] p-[25px] w-[438px] drop-shadow-[0_0_64px_rgba(0,0,0,0.25)] ">
           {loading ? (
-            <Loading size="8" />
+            <Loading size="20" />
           ) : (
             <>
               <p className="text-black text-base  font-[700]">

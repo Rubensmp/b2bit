@@ -6,8 +6,8 @@ export interface InitialValues {
 }
 
 const initialValues: InitialValues = {
-  email: 'teste@gmail.com',
-  password: '123456',
+  email: '',
+  password: '',
 };
 
 const validationSchema = Yup.object().shape({
