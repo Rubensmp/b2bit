@@ -1,10 +1,10 @@
 describe('template spec', () => {
-  it('should redirect to /signin', () => {
+  it('if not authenticated should redirect to /signin', () => {
     cy.visit('http://localhost:3000/profile')
     cy.location('pathname').should('eq', '/signin')
   });
 
-  it('if authenshould redirect to /signin', () => {
+  it('if authenticated should redirect to /', () => {
     cy.intercept('GET', '/auth/profile/', {
       statusCode: 200,
       body: {
