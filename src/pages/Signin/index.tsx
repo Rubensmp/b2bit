@@ -26,8 +26,6 @@ const Signin: React.FC = () => {
         "/auth/login/",
         {
           ...values,
-          // email: "cliente@youdrive.com",
-          // password: "password",
         },
         {
           headers: {
