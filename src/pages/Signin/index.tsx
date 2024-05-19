@@ -54,7 +54,12 @@ const Signin: React.FC = () => {
   return (
     <div className="flex flex-1 items-center justify-center h-dvh  bg-white-1">
       <div className="flex flex-col w-438px bg-white items-center rounded-[9px] p-[25px] w-[438px] drop-shadow-[0_0_64px_rgba(0,0,0,0.25)] ">
-        <img src={logo} alt="logo" className="mb-[20px]" />
+        <img
+          src={logo}
+          alt="logo"
+          className="mb-[20px]"
+          data-testid="logo-cypress"
+        />
         <Formik
           {...formSchema}
           onSubmit={(values) => {
@@ -67,18 +72,21 @@ const Signin: React.FC = () => {
               type="email"
               label="E-mail"
               placeholder="@gmail.com"
+              data-testid="email-form-cypress"
             />
             <InputText
               name="password"
               type="password"
               label="Senha"
               placeholder="*******"
+              data-testid="password-form-cypress"
             />
             {error ? (
               <div className="text-red text-[12px]">{error}</div>
             ) : (
               <div className="h-[18px]" />
             )}
+
             <ActionButton type="submit" text={"Sign In"} loading={loading} />
           </Form>
         </Formik>

@@ -59,7 +59,10 @@ const Profile: React.FC = () => {
             <Loading size="20" />
           ) : (
             <>
-              <p className="text-black text-base  font-[700]">
+              <p
+                className="text-black text-base  font-[700]"
+                data-testid="tittle-cypress"
+              >
                 Profile picture
               </p>
               <img
@@ -68,25 +71,38 @@ const Profile: React.FC = () => {
                 src={
                   userInfo.avatar
                     ? userInfo.avatar
-                    : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDJ_JaDE2dBVDFr4uhtScEc9SMVQOb_xaukrgmjtmQ5g&s"
+                    : "https://placehold.co/70x70/"
                 }
+                data-testid="avatar-cypress"
               />
               <div className="flex flex-auto flex-col w-[100%] mt-[15px]">
-                <div className="text-black text-base">
+                <div
+                  className="text-black text-base"
+                  data-testid="name-cypress"
+                >
                   Your <span className="font-[700]">Name</span>
                 </div>
-                <div className="bg-grey rounded-[9px] px-[18px] py-[18px] text-[12px]">
+                <div
+                  className="bg-grey rounded-[9px] px-[18px] py-[18px] text-[12px]"
+                  data-testid="userName-cypress"
+                >
                   {userInfo.name}
                 </div>
               </div>
-              <div className="flex flex-auto flex-col w-[100%] mt-[15px]">
+              <div
+                className="flex flex-auto flex-col w-[100%] mt-[15px]"
+                data-testid="email-cypress"
+              >
                 <div className="text-black text-base">
                   Your <span className="font-[700]">E-mail</span>
                 </div>
-                <div className="bg-grey rounded-[9px] px-[18px] py-[18px] text-[12px]">
+                <div
+                  className="bg-grey rounded-[9px] px-[18px] py-[18px] text-[12px]"
+                  data-testid="userEmail-cypress"
+                >
                   {userInfo.email}
                 </div>
-              </div>{" "}
+              </div>
             </>
           )}
         </div>
